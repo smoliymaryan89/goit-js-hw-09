@@ -10,7 +10,7 @@ formEl.addEventListener('submit', event => {
   } = event.currentTarget;
 
   for (let i = 1; i <= Number(amount.value); i++) {
-    createPromise(i, Number(step.value) * i + Number(delay.value))
+    createPromise(i, Number(step.value) * (i - 1) + Number(delay.value))
       .then(msg => Notify.success(msg))
       .catch(error => Notify.failure(error));
   }
